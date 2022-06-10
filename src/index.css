@@ -31,6 +31,15 @@ code {
   margin: auto;
 }
 
+.containerNewItem p {
+  max-width: 500px;
+}
+
+.containerNewItem span {
+  text-decoration: none;
+  color: black;
+}
+
 
 a:-webkit-any-link  {
   color: #fff;

@@ -1,43 +1,42 @@
 import React, { useEffect, useState } from 'react';
-import deleteImg from '../components/delete.png';
+import deleteImg from '../img/delete.png';
 import { useDispatch } from 'react-redux';
 import { setNewsState } from '../store/features/news/newsSlice';
 import '../components/NewList.css';
 import Spinner from './Spinner';
 import { Link } from 'react-router-dom';
 
-let page = 1
+let PAGE = 1;
 
 const NewsList = (props) => {
 
-  const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(true);
- 
-  const newNews = () => {
-      page++
-      setLoading(false)
-      onUpdateNews();
+    const [items, setItems] = useState([]);
+    const [loading, setLoading] = useState(true);
+  
+    const newNews = () => {
+        PAGE++
+        setLoading(false)
+        onUpdateNews();
     }
 
-   const lastNews = () => {
-      if (page === 1) {
-        setLoading(true)
-        onUpdateNews();
-      } else {
-        page--
-        setLoading(true)
-        onUpdateNews();
-      }
-      
+    const lastNews = () => {
+        if (PAGE === 1) {
+          setLoading(true)
+          onUpdateNews();
+        } else {
+          PAGE--
+          setLoading(true)
+          onUpdateNews();
+        }   
     }
   
-   const onDelete = (id) => {
+    const onDelete = (id) => {
        const newArr = items.filter(item => item.id !== id);
       setItems(newArr); 
     }
     
-   function onUpdateNews() {
-      fetch(`https://newsapi.org/v2/everything?q=education&page=${page}&apiKey=c1ebcda8143d40af8c2485acd8b00833`)
+    function onUpdateNews() {
+      fetch(`https://newsapi.org/v2/everything?q=education&page=${PAGE}&apiKey=c1ebcda8143d40af8c2485acd8b00833`)
         .then(res => res.json())
         .then(
           (result) => {
@@ -82,8 +81,8 @@ const NewsList = (props) => {
       <>
       <div className='new-all-items-info'>
         {items.map((item, i) => { 
-              if( i > 20) return;
-              return (
+            if ( i > 17) return;
+            return (
               <div className='new-item containerTwo' key={item.id} onClick={(e) => itemInfo(item)}>
                     <Link to="/news/:title" className='new-item-info'>
                       <div>

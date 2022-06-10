@@ -5,7 +5,6 @@ import { BrowserRouter, Routes , Route, NavLink } from "react-router-dom";
 import { NewsItem } from "./NewItem";
 
 const News = () =>  {
-
     
     return(
         <BrowserRouter>
@@ -15,7 +14,6 @@ const News = () =>  {
                         <h1>NEWS</h1>
                         <div className="containerTwo nav-link-all">
                             <NavLink className="navLink" to="/"><b>News</b></NavLink>
-                            <NavLink className="navLink" to="/news/:title"><b>NewsItem</b></NavLink>
                         </div>
                     </div>
                 </div>   

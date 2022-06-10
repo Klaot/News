@@ -1,4 +1,4 @@
-import './NewItem.css';
+
 import { useSelector } from "react-redux";
 
  const NewsItem = () => {
